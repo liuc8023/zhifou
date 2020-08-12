@@ -82,13 +82,13 @@ configurations {
 
 // 清除现有的lib目录
 task clearJar(type: Delete) {
-    delete "$buildDir\\libs\\lib"
+    delete "$buildDir/libs/lib"
 }
 
 // 将依赖包复制到lib目录
 task copyJar(type: Copy, dependsOn: 'clearJar') {
     from configurations.compileClasspath
-    into "$buildDir\\libs\\lib"
+    into "$buildDir/libs/lib"
 }
 
 bootJar {

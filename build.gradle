@@ -121,4 +121,20 @@ subprojects {
             options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
         }
     }
+    //Gradle 和 idea 集成时如何不自动下载依赖源码和javadoc
+    idea {
+        module {
+            downloadJavadoc = false
+            downloadSources = false
+        }
+    }
+
+    //如果是Gradle 4.6及以上版本,则Gradle原生支持Junit5
+    test {
+        useJUnitPlatform()
+        testLogging {
+            showStandardStreams = true
+            exceptionFormat = "full"
+        }
+    }
 }
