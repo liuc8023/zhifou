@@ -1,0 +1,106 @@
+// buildscript 代码块中脚本优先执行
+buildscript {
+    // ext 用于定义动态属性
+    ext {
+        springBootVersion = '2.3.2.RELEASE'
+        springcloudVersion= 'Hoxton.SR6'
+        springloadedVersion = '1.2.8.RELEASE'
+        lombokVersion= '1.18.12'
+        mysqlVersion= '8.0.20'
+        fastjsonVersion = "1.2.54"
+        dubboVersion = '2.7.7'
+        redisVersion = '2.3.0.RELEASE'
+        mybatisPlusVersion = '3.3.2'
+    }
+
+    //仓库管理
+    repositories {
+        // 本地maven仓库
+        mavenLocal()
+        //自定义maven仓库地址
+        maven {
+            url = 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+        mavenCentral()
+        google()
+        //和maven中央仓库一样的另一个依赖管理仓库,主要是java
+        jcenter()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+        maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local/' }
+    }
+
+    /**
+     * api 用于取代compile(已被废弃)
+     * api或compile关键字引用的包对于其他module来说是可见的，
+     * implementation关键字引用的包对于其他module来说是不可见的。
+     */
+    //项目依赖
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        //配置热部署
+        classpath ("org.springframework:springloaded:${springloadedVersion}")
+    }
+}
+
+group 'com.springcloud'
+version '1.0'
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+// 配置该项目特有的依赖
+dependencies {
+    compile project(':kernel:kernel-common')
+    //如果要做jar包分离，此处必须要使用compile,不然系统启动失败，血的教训
+    compile(
+            //springboot
+            "org.springframework.boot:spring-boot-starter-web:$springBootVersion",
+            "org.springframework.boot:spring-boot-devtools:$springBootVersion",
+            // Log4j2
+            "org.springframework.boot:spring-boot-starter-log4j2:$springBootVersion",
+            "org.springframework.boot:spring-boot-starter-web",
+            "org.springframework.boot:spring-boot-starter-amqp",
+//            "org.springframework.session:spring-session-data-redis:${redisVersion}",
+            "org.springframework.boot:spring-boot-starter-jdbc",
+            "org.apache.dubbo:dubbo-spring-boot-starter:${dubboVersion}",
+            "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusVersion}",
+            //mysql
+            "mysql:mysql-connector-java",
+    )
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    annotationProcessor 'org.projectlombok:lombok'
+    compileOnly 'org.projectlombok:lombok'
+}
+
+configurations {
+    // 所有需要忽略的包定义在此
+    //移除spring boot 默认logger依赖
+    all*.exclude module: 'spring-boot-starter-logging'
+}
+
+// 清除现有的lib目录
+task clearJar(type: Delete) {
+    delete "$buildDir\\libs\\lib"
+}
+
+// 将依赖包复制到lib目录
+task copyJar(type: Copy, dependsOn: 'clearJar') {
+    from configurations.compileClasspath
+    into "$buildDir\\libs\\lib"
+}
+
+bootJar {
+    // 例外所有的jar
+    excludes = ["*.jar"]
+    // lib目录的清除和复制任务
+    dependsOn clearJar
+    dependsOn copyJar
+
+    // 指定依赖包的路径
+    manifest {
+        attributes "Manifest-Version": 1.0,
+                'Class-Path': configurations.compileClasspath.files.collect { "lib/$it.name" }.join(' ')
+    }
+}

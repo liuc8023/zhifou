@@ -1,0 +1,124 @@
+group 'com.springcloud.zhifou'
+version '1.0-SNAPSHOT'
+
+// buildscript 代码块中脚本优先执行
+buildscript {
+    // ext 用于定义动态属性
+    ext {
+        springBootVersion = '2.3.2.RELEASE'
+    }
+
+    //仓库管理
+    repositories {
+        // 本地maven仓库
+        mavenLocal()
+        //自定义maven仓库地址
+        maven {
+            url = 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+        mavenCentral()
+        google()
+        //和maven中央仓库一样的另一个依赖管理仓库,主要是java
+        jcenter()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+        maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local/' }
+    }
+
+    /**
+     * api 用于取代compile(已被废弃)
+     * api或compile关键字引用的包对于其他module来说是可见的，
+     * implementation关键字引用的包对于其他module来说是不可见的。
+     */
+    //项目依赖
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+//allprojects所有项目共享的配置
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'maven'
+    apply plugin: 'java-library'
+    sourceCompatibility = 11
+    targetCompatibility = 11
+}
+
+// subprojects : 所有子模块共享的配置
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    // java编译的时候缺省状态下会因为中文字符而失败
+    [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+    // 配置所有子模块的依赖仓库地址
+    repositories {
+        // 本地maven仓库
+        mavenLocal()
+        mavenCentral()
+        maven { url = 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        //和maven中央仓库一样的另一个依赖管理仓库,主要是java
+        jcenter()
+    }
+    ext {//依赖版本
+        lombokVersion= '1.18.12'
+        fastjsonVersion = "1.2.54"
+        disruptorVersion = '3.4.2'
+        log4jVersion = '2.13.3'
+        commonslang3Version = '3.11'
+        commonsCodecVersion = '1.14'
+        javaxAnnotationApiVersion = '1.3.2'
+        jansiVersion = '1.18'
+        huToolVersion = '5.3.10'
+        servletApiVersion = '4.0.1'
+    }
+    //所有子模块共有依赖
+    dependencies{
+        //这里如果配置了jar包依赖，所有子项目共享，使用了gradle的依赖传递特性。
+        compile(
+                //引入disruptor并发框架
+                "com.lmax:disruptor:$disruptorVersion",
+                "org.apache.logging.log4j:log4j-core:$log4jVersion",
+                "org.apache.logging.log4j:log4j-api:$log4jVersion",
+                "log4j:log4j:1.2.17",
+                //通用基础库
+                "org.apache.commons:commons-lang3:$commonslang3Version",
+                "commons-codec:commons-codec:$commonsCodecVersion",
+                "jaxen:jaxen:1.2.0",
+                "javax.annotation:javax.annotation-api:$javaxAnnotationApiVersion",
+                "javax.servlet:javax.servlet-api:$servletApiVersion",
+                //lombok
+                "org.projectlombok:lombok:$lombokVersion",
+                //控制台彩色字体库
+                "org.fusesource.jansi:jansi:$jansiVersion",
+                "cn.hutool:hutool-all:$huToolVersion",
+                //FastJson
+                "com.alibaba:fastjson:$fastjsonVersion"
+        )
+
+        // 测试依赖
+        testCompile(
+                "org.springframework.boot:spring-boot-starter-test:$springBootVersion",
+                "junit:junit:4.12"
+        )
+    }
+    //所有需要忽略的包定义在此
+    configurations {
+        //移除spring boot 默认logger依赖
+        all*.exclude module: 'spring-boot-starter-logging'
+    }
+
+    //我们为 Java 项目指定了版本号以及所用的 JDK 版本，并且添加一些属性到 mainfest 中。
+    jar {
+        manifest {
+            attributes("Implementation-Title": "Gradle")
+        }
+    }
+
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+        }
+    }
+}

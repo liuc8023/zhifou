@@ -1,0 +1,6 @@
+rootProject.name = 'zhifou'
+include 'customer-center'
+include 'kernel'
+include 'kernel:kernel-common'
+findProject(':kernel:kernel-common')?.name = 'kernel-common'
+

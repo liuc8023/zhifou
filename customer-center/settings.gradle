@@ -1,0 +1,4 @@
+rootProject.name = 'customer-center'
+includeFlat 'kernel'
+include 'kernel:kernel-common'
+
