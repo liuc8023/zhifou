@@ -3,7 +3,8 @@ buildscript {
     // ext 用于定义动态属性
     ext {
         springBootVersion = '2.3.2.RELEASE'
-        springcloudVersion= 'Hoxton.SR6'
+        springCloudVersion= 'Hoxton.SR6'
+        springCloudAlibabaVersion= '2.1.1.BUILD-SNAPSHOT'
         springloadedVersion = '1.2.8.RELEASE'
         lombokVersion= '1.18.12'
         mysqlVersion= '8.0.20'
@@ -50,6 +51,14 @@ apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
+dependencyManagement {
+    imports {
+        // 解决cloud零散jar的版本问题
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:${springCloudAlibabaVersion}"
+    }
+}
+
 // 配置该项目特有的依赖
 dependencies {
     compile project(':kernel:kernel-common')
@@ -68,6 +77,8 @@ dependencies {
             "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusVersion}",
             //mysql
             "mysql:mysql-connector-java",
+            "com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:2.2.1.RELEASE",
+            "com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:2.2.1.RELEASE"
     )
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     annotationProcessor 'org.projectlombok:lombok'
