@@ -72,6 +72,7 @@ subprojects {
         jansiVersion = '1.18'
         huToolVersion = '5.3.10'
         servletApiVersion = '4.0.1'
+        mapStructVersion = '1.3.1.Final'
     }
     //所有子模块共有依赖
     dependencies{
@@ -94,7 +95,10 @@ subprojects {
                 "org.fusesource.jansi:jansi:$jansiVersion",
                 "cn.hutool:hutool-all:$huToolVersion",
                 //FastJson
-                "com.alibaba:fastjson:$fastjsonVersion"
+                "com.alibaba:fastjson:$fastjsonVersion",
+                //mapstruct
+                "org.mapstruct:mapstruct-jdk8:$mapStructVersion",
+                "org.mapstruct:mapstruct-processor:$mapStructVersion"
         )
 
         // 测试依赖
