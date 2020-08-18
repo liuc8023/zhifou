@@ -35,9 +35,8 @@ zhifou
 | Lombok               | 简化对象封装工具    | https://github.com/rzwitserloot/lombok               |
 | loc                  | 代码行数统计        | https://github.com/cgag/loc                          |
 
-
-
 ## 参考文章
 
 1. [使用Gradle构建SpringBoot项目](https://mp.weixin.qq.com/s/riZLDXidJr7qJXH0wuTglw)
+2. [Springboot2.*和Gradle整合log4j2日志全解](https://mp.weixin.qq.com/s/dk02GcCfNizYEkGwsS353A)
 
