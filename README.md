@@ -17,6 +17,7 @@ zhifou
 | -------------------- | ------------------- | ---------------------------------------------------- |
 | Spring Boot          | 容器                | https://spring.io/projects/spring-boot               |
 | Spring Cloud Alibaba | 分布式            | https://spring.io/projects/spring-cloud-alibaba         |
+| Nacos                | 注册中心           | https://nacos.io/zh-cn/         |
 | MyBatis              | ORM框架             | http://www.mybatis.org/mybatis-3/zh/index.html       |
 | MyBatisPlus          | ORM框架补充         | https://mybatis.plus/                                |
 | MyBatisGenerator     | 数据层代码生成      | http://www.mybatis.org/generator/index.html          |

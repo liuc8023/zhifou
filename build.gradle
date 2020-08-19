@@ -5,7 +5,7 @@ version '1.0-SNAPSHOT'
 buildscript {
     // ext 用于定义动态属性
     ext {
-        springBootVersion = '2.3.2.RELEASE'
+        springBootVersion = '2.3.3.RELEASE'
     }
 
     //仓库管理
@@ -42,8 +42,8 @@ allprojects {
     apply plugin: 'idea'
     apply plugin: 'maven'
     apply plugin: 'java-library'
-    sourceCompatibility = 11
-    targetCompatibility = 11
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
 }
 
 // subprojects : 所有子模块共享的配置
@@ -78,8 +78,11 @@ subprojects {
     dependencies{
         //这里如果配置了jar包依赖，所有子项目共享，使用了gradle的依赖传递特性。
         compile(
+                // Log4j2
+                "org.springframework.boot:spring-boot-starter-log4j2:$springBootVersion",
                 //引入disruptor并发框架
                 "com.lmax:disruptor:$disruptorVersion",
+                //log4j
                 "org.apache.logging.log4j:log4j-core:$log4jVersion",
                 "org.apache.logging.log4j:log4j-api:$log4jVersion",
                 "log4j:log4j:1.2.17",

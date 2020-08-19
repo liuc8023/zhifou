@@ -1,3 +1,40 @@
 group 'com.springcloud.kernel'
 version '1.0-SNAPSHOT'
 
+// buildscript 代码块中脚本优先执行
+buildscript {
+    // ext 用于定义动态属性
+    ext {
+        springBootVersion = '2.3.3.RELEASE'
+        lombokVersion= '1.18.12'
+    }
+
+    //仓库管理
+    repositories {
+        // 本地maven仓库
+        mavenLocal()
+        //自定义maven仓库地址
+        maven {
+            url = 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+        mavenCentral()
+        google()
+        //和maven中央仓库一样的另一个依赖管理仓库,主要是java
+        jcenter()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+        maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local/' }
+    }
+}
+
+
+// 配置该项目特有的依赖
+dependencies {
+    //如果要做jar包分离，此处必须要使用compile,不然系统启动失败，血的教训
+    compile(
+            // Log4j2
+            "org.springframework.boot:spring-boot-starter-log4j2:$springBootVersion",
+    )
+    annotationProcessor 'org.projectlombok:lombok'
+    compileOnly 'org.projectlombok:lombok'
+}
