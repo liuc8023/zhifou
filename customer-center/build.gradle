@@ -2,16 +2,12 @@
 buildscript {
     // ext 用于定义动态属性
     ext {
-        springBootVersion = '2.3.2.RELEASE'
+        springBootVersion = '2.3.3.RELEASE'
         springCloudVersion= 'Hoxton.SR6'
         springCloudAlibabaVersion= '2.1.1.BUILD-SNAPSHOT'
+        nacosVersion = '2.2.1.RELEASE'
         springloadedVersion = '1.2.8.RELEASE'
         lombokVersion= '1.18.12'
-        mysqlVersion= '8.0.20'
-        fastjsonVersion = "1.2.54"
-        dubboVersion = '2.7.7'
-        redisVersion = '2.3.0.RELEASE'
-        mybatisPlusVersion = '3.3.2'
     }
 
     //仓库管理
@@ -67,18 +63,13 @@ dependencies {
             //springboot
             "org.springframework.boot:spring-boot-starter-web:$springBootVersion",
             "org.springframework.boot:spring-boot-devtools:$springBootVersion",
+            "org.springframework.boot:spring-boot-starter-jdbc:$springBootVersion",
             // Log4j2
             "org.springframework.boot:spring-boot-starter-log4j2:$springBootVersion",
-            "org.springframework.boot:spring-boot-starter-web",
             "org.springframework.boot:spring-boot-starter-amqp",
 //            "org.springframework.session:spring-session-data-redis:${redisVersion}",
-            "org.springframework.boot:spring-boot-starter-jdbc",
-            "org.apache.dubbo:dubbo-spring-boot-starter:${dubboVersion}",
-            "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusVersion}",
-            //mysql
-            "mysql:mysql-connector-java",
-            "com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:2.2.1.RELEASE",
-            "com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:2.2.1.RELEASE"
+            //nacos
+            "com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:$nacosVersion",
     )
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     annotationProcessor 'org.projectlombok:lombok'

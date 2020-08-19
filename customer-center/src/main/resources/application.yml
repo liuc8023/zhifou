@@ -1,5 +1,32 @@
-#日志配置
+server:
+  port: 8992
+
+spring:
+  application:
+    name: CustomerCenter  #项目名称(Redis缓存Key等将以此为前缀以避免冲突)
+  #进行全局配置，将日期格式为:yyyy-MM-dd HH:mm:ss
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  #  profiles:
+  #    active: #help.profile#      #运行环境占位符,打包时被替代
+  cloud:
+    nacos:
+      config:
+        server-addr: ${nacos.server-addr}:${nacos.port}
+      discovery:
+        enabled: true
+        register-enabled: true
+        server-addr: ${nacos.server-addr}:${nacos.port}
+
+
+#==================== 日志配合·标准  ============================
 logging:
   config: classpath:log4j2-spring.xml
   level:
     root: debug
+
+####################################### Nacos 配置 #######################################
+nacos:
+  server-addr: 192.168.8.129
+  port: 8848
