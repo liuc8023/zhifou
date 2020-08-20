@@ -1,6 +1,6 @@
 # zhifou
 
-本项目是一个基于Gradle项目构建工具构建的SpringBoot项目。
+本项目是一个基于Gradle项目构建工具构建的SpringBoot、Spring Cloud、Spring Cloud Alibaba微服务项目。
 
 ## 项目结构
 
@@ -32,10 +32,27 @@ zhifou
 
 ## 参考文章
 
-1. [使用Gradle构建SpringBoot项目](https://mp.weixin.qq.com/s/riZLDXidJr7qJXH0wuTglw)
-2. [Springboot2.*和Gradle整合log4j2日志全解](https://mp.weixin.qq.com/s/dk02GcCfNizYEkGwsS353A)
-3. [SpringBoot2.*整合Nacos与SpringCloud for Alibaba](https://mp.weixin.qq.com/s/Y0wnC3YtDMweHsc3vvnPKQ)
+| 序号  | 参考文章              | 
+| ---- | ------------------- | 
+|1     | [使用Gradle构建SpringBoot项目](https://mp.weixin.qq.com/s/riZLDXidJr7qJXH0wuTglw)|
+|2     | [Springboot2.*和Gradle整合log4j2日志全解](https://mp.weixin.qq.com/s/dk02GcCfNizYEkGwsS353A)|
+|3     | [SpringBoot2.*整合Nacos与Spring Cloud Alibaba](https://mp.weixin.qq.com/s/Y0wnC3YtDMweHsc3vvnPKQ)|
+
 
 ## 相关工具安装
 
-1. [CentOS7.5.1804 Minimal安装Nacos1.1.0](https://mp.weixin.qq.com/s/1nubUn3pZImVVHPpc85qzw)
+| 序号  | 相关工具安装            | 
+| ---- | ------------------- | 
+|1     | [CentOS7.5.1804 Minimal安装Nacos1.1.0](https://mp.weixin.qq.com/s/1nubUn3pZImVVHPpc85qzw)|
+|2     |    |
+|3     |    |
+
+
+## 外部参考
+
+| 序号  | 外部参考              | 
+| ---- | ------------------- | 
+|1     | [Sentinel教程](https://github.com/all4you/sentinel-tutorial)|
+|2     |    |
+|3     |    |
+ 
