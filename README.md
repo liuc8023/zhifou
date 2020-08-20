@@ -16,8 +16,8 @@ zhifou
 | 技术                 | 说明                | 官网                                                 |
 | -------------------- | ------------------- | ---------------------------------------------------- |
 | Spring Boot          | 容器                | https://spring.io/projects/spring-boot               |
-| Spring Cloud Alibaba | 分布式            | https://spring.io/projects/spring-cloud-alibaba         |
-| Nacos                | 注册中心           | https://nacos.io/zh-cn/         |
+| Spring Cloud Alibaba | 分布式              | https://spring.io/projects/spring-cloud-alibaba      |
+| Nacos                | 注册中心            | https://nacos.io/zh-cn/                              |
 | MyBatis              | ORM框架             | http://www.mybatis.org/mybatis-3/zh/index.html       |
 | MyBatisPlus          | ORM框架补充         | https://mybatis.plus/                                |
 | MyBatisGenerator     | 数据层代码生成      | http://www.mybatis.org/generator/index.html          |
@@ -34,4 +34,8 @@ zhifou
 
 1. [使用Gradle构建SpringBoot项目](https://mp.weixin.qq.com/s/riZLDXidJr7qJXH0wuTglw)
 2. [Springboot2.*和Gradle整合log4j2日志全解](https://mp.weixin.qq.com/s/dk02GcCfNizYEkGwsS353A)
+3. [SpringBoot2.*整合Nacos与SpringCloud for Alibaba](https://mp.weixin.qq.com/s/Y0wnC3YtDMweHsc3vvnPKQ)
 
+## 相关工具安装
+
+1. [CentOS7.5.1804 Minimal安装Nacos1.1.0](https://mp.weixin.qq.com/s/1nubUn3pZImVVHPpc85qzw)
