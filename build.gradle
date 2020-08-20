@@ -58,8 +58,12 @@ subprojects {
         mavenLocal()
         mavenCentral()
         maven { url = 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        google()
         //和maven中央仓库一样的另一个依赖管理仓库,主要是java
         jcenter()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+        maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local/' }
     }
     ext {//依赖版本
         lombokVersion= '1.18.12'
