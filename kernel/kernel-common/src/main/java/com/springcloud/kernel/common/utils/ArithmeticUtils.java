@@ -1,7 +1,6 @@
 package com.springcloud.kernel.common.utils;
 
 import com.springcloud.kernel.common.constant.Constant;
-
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.RoundingMode;
