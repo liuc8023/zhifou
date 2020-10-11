@@ -27,14 +27,17 @@ buildscript {
     }
 }
 
+apply plugin: 'java'
 
-// 配置该项目特有的依赖
 dependencies {
     //如果要做jar包分离，此处必须要使用compile,不然系统启动失败，血的教训
     compile(
-            // Log4j2
-            "org.springframework.boot:spring-boot-starter-log4j2:$springBootVersion"
+        // Log4j2
+        "org.springframework.boot:spring-boot-starter-log4j2:$springBootVersion",
+        "org.projectlombok:lombok:$lombokVersion"
     )
-    annotationProcessor 'org.projectlombok:lombok'
-    compileOnly 'org.projectlombok:lombok'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
 }

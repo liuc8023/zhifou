@@ -2,12 +2,12 @@
 buildscript {
     // ext 用于定义动态属性
     ext {
-        springBootVersion = '2.3.3.RELEASE'
+        springBootVersion = '2.3.4.RELEASE'
         springCloudVersion= 'Hoxton.SR6'
         springCloudAlibabaVersion= '2.1.1.BUILD-SNAPSHOT'
-        nacosVersion = '2.2.1.RELEASE'
+        nacosVersion = '2.2.3.RELEASE'
         springloadedVersion = '1.2.8.RELEASE'
-        lombokVersion= '1.18.12'
+        lombokVersion= '1.18.14'
     }
 
     //仓库管理
