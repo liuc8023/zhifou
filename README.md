@@ -30,6 +30,7 @@ zhifou
 | JWT                  | JWT登录支持            | https://github.com/jwtk/jjwt                         |
 | LogStash             | 日志收集               | https://github.com/logstash/logstash-logback-encoder |
 | Lombok               | 简化对象封装工具       | https://github.com/rzwitserloot/lombok               |
+| Banner               | 定制个性 banner       | http://patorjk.com/software/taag                |
 
 ## 参考文章
 
