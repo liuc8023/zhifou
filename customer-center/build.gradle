@@ -3,7 +3,7 @@ buildscript {
     // ext 用于定义动态属性
     ext {
         springBootVersion = '2.3.4.RELEASE'
-        springCloudVersion= 'Hoxton.SR6'
+        springCloudVersion= 'Hoxton.SR8'
         springCloudAlibabaVersion= '2.1.1.BUILD-SNAPSHOT'
         nacosVersion = '2.2.3.RELEASE'
         sentinelVersion = '2.2.3.RELEASE'
