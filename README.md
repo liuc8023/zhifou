@@ -54,10 +54,3 @@ zhifou
 | 1    | [Sentinel教程](https://github.com/all4you/sentinel-tutorial) |
 | 2    |                                                              |
 | 3    |                                                              |
-
-## 官网
-| 官网名称 | 官网地址                                                 |
-| ---- | ------------------------------------------------------------ |
-| Spring Boot    | https://spring.io/projects/spring-boot |
-| Spring Cloud   | https://spring.io/projects/spring-cloud |
-| Spring Cloud Alibaba | https://spring.io/projects/spring-cloud-alibaba
