@@ -4,12 +4,15 @@ server:
 spring:
   application:
     name: CustomerCenter  #项目名称(Redis缓存Key等将以此为前缀以避免冲突)
+    version: 1.0
   #进行全局配置，将日期格式为:yyyy-MM-dd HH:mm:ss
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
   #  profiles:
   #    active: #help.profile#      #运行环境占位符,打包时被替代
+  main:
+    show-banner: true # 是否显示banner，可选值[true|false]
   cloud:
     nacos:
       config:
