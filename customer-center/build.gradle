@@ -62,7 +62,7 @@ dependencies {
     compile project(':kernel:kernel-common')
     //如果要做jar包分离，此处必须要使用compile,不然系统启动失败，血的教训
     compile(
-            //springboot
+            //springboot 依赖
             "org.springframework.boot:spring-boot-starter-web:$springBootVersion",
             "org.springframework.boot:spring-boot-devtools:$springBootVersion",
             "org.springframework.boot:spring-boot-starter-jdbc:$springBootVersion",
@@ -70,7 +70,7 @@ dependencies {
             "org.springframework.boot:spring-boot-starter-log4j2:$springBootVersion",
             "org.springframework.boot:spring-boot-starter-amqp",
 //            "org.springframework.session:spring-session-data-redis:${redisVersion}",
-            //--------spring cloud alibaba 依赖
+            //spring cloud alibaba 依赖
             // nacos 服务中心依赖
             "com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:$nacosVersion",
             //整合 sentinel
