@@ -6,8 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -25,7 +24,7 @@ public class CustomerCenterApplication {
         SpringApplication.run(CustomerCenterApplication.class, args);
     }
 
-    @RequestMapping(value="/hello",method= RequestMethod.GET)
+    @GetMapping(value="/hello")
     public String hello(){
         if (UtilValidate.areEqual("","")) {
             log.info("23423424");

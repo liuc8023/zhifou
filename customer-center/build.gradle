@@ -6,8 +6,10 @@ buildscript {
         springCloudVersion= 'Hoxton.SR6'
         springCloudAlibabaVersion= '2.1.1.BUILD-SNAPSHOT'
         nacosVersion = '2.2.3.RELEASE'
+        sentinelVersion = '2.2.3.RELEASE'
         springloadedVersion = '1.2.8.RELEASE'
         lombokVersion= '1.18.14'
+        sentinelDatasourceNacosVersion = '1.8.0'
     }
 
     //仓库管理
@@ -68,10 +70,15 @@ dependencies {
             "org.springframework.boot:spring-boot-starter-log4j2:$springBootVersion",
             "org.springframework.boot:spring-boot-starter-amqp",
 //            "org.springframework.session:spring-session-data-redis:${redisVersion}",
-            //nacos
+            //--------spring cloud alibaba 依赖
+            // nacos 服务中心依赖
             "com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:$nacosVersion",
+            //整合 sentinel
+            "com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:$sentinelVersion",
+            "com.alibaba.csp:sentinel-datasource-nacos:$sentinelDatasourceNacosVersion"
     )
     testCompile 'org.springframework.boot:spring-boot-starter-test'
+    //lombok
     annotationProcessor 'org.projectlombok:lombok'
     compileOnly 'org.projectlombok:lombok'
 }

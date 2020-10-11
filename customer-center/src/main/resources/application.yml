@@ -18,7 +18,17 @@ spring:
         enabled: true
         register-enabled: true
         server-addr: ${nacos.server-addr}:${nacos.port}
-
+    sentinel:
+      transport:
+        dashboard: 192.168.8.129:8080 #sentinel dashboard的访问地址
+      eager: true #取消Sentinel控制台懒加载
+      datasource:
+        ds:
+          nacos:
+            server-addr: ${spring.cloud.nacos.discovery.server-addr} #nacos的访问地址
+            dataId: ${spring.application.name}-sentinel #nacos中存储规则的dataId
+            groupId: DEFAULT_GROUP #nacos中存储规则的groupId
+            rule-type: FLOW #该参数是spring cloud alibaba升级到0.2.2之后增加的配置，用来定义存储的规则类型
 
 #==================== 日志配合·标准  ============================
 logging:
