@@ -1,0 +1,3 @@
+rootProject.name = 'kernel'
+include 'kernel-common'
+
