@@ -30,7 +30,7 @@ zhifou
 | JWT                  | JWT登录支持            | https://github.com/jwtk/jjwt                         |
 | LogStash             | 日志收集               | https://github.com/logstash/logstash-logback-encoder |
 | Lombok               | 简化对象封装工具       | https://github.com/rzwitserloot/lombok               |
-| Banner               | 定制个性 banner       | http://patorjk.com/software/taag                |
+| Banner               | 定制个性 banner        | http://patorjk.com/software/taag                     |
 
 ## 参考文章
 
@@ -55,3 +55,13 @@ zhifou
 | 1    | [Sentinel教程](https://github.com/all4you/sentinel-tutorial) |
 | 2    |                                                              |
 | 3    |                                                              |
+
+## 其他
+
+欢迎访问我的博客：https://blog.csdn.net/lc1010078424
+
+欢迎访问我的GitHub：https://github.com/liuc8023/zhifou
+
+欢迎访问我的公众号
+
+![](images/qrcode_for_gh_36fd4663841a_258.jpg)
