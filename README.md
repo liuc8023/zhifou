@@ -39,6 +39,8 @@ zhifou
 | 1    | [使用Gradle构建SpringBoot项目](https://mp.weixin.qq.com/s/riZLDXidJr7qJXH0wuTglw) |
 | 2    | [Springboot2.*和Gradle整合log4j2日志全解](https://mp.weixin.qq.com/s/dk02GcCfNizYEkGwsS353A) |
 | 3    | [SpringBoot2.*整合Nacos与Spring Cloud Alibaba](https://mp.weixin.qq.com/s/Y0wnC3YtDMweHsc3vvnPKQ) |
+| 4    | [Springboot2.*整合Sentinel](https://mp.weixin.qq.com/s/eGloTPb_GzbEWAFBO-cDOA) |
+| 5    | [Springboot2.*整合Druid1.2.*](https://mp.weixin.qq.com/s/iaPt9v3d8eOCyIUORuaiIg) |
 
 ## 相关工具安装
 
