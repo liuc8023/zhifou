@@ -10,6 +10,7 @@ buildscript {
         springloadedVersion = '1.2.8.RELEASE'
         lombokVersion= '1.18.14'
         sentinelDatasourceNacosVersion = '1.8.0'
+        druidVersion = '1.2.1'
     }
 
     //仓库管理
@@ -75,7 +76,10 @@ dependencies {
             "com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:$nacosVersion",
             //整合 sentinel
             "com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:$sentinelVersion",
-            "com.alibaba.csp:sentinel-datasource-nacos:$sentinelDatasourceNacosVersion"
+            "com.alibaba.csp:sentinel-datasource-nacos:$sentinelDatasourceNacosVersion",
+            //整合druid
+            "com.alibaba:druid-spring-boot-starter:$druidVersion",
+            "mysql:mysql-connector-java:8.0.21"
     )
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     //lombok
@@ -98,6 +102,10 @@ task clearJar(type: Delete) {
 task copyJar(type: Copy, dependsOn: 'clearJar') {
     from configurations.compileClasspath
     into "$buildDir/libs/lib"
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
 }
 
 bootJar {

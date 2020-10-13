@@ -5,7 +5,7 @@ version '1.0-SNAPSHOT'
 buildscript {
     // ext 用于定义动态属性
     ext {
-        springBootVersion = '2.3.3.RELEASE'
+        springBootVersion = '2.3.4.RELEASE'
         lombokVersion= '1.18.12'
     }
 
