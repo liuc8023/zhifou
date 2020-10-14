@@ -11,6 +11,7 @@ buildscript {
         lombokVersion= '1.18.14'
         sentinelDatasourceNacosVersion = '1.8.0'
         druidVersion = '1.2.1'
+        mysqlVersion = '8.0.21'
     }
 
     //仓库管理
@@ -79,7 +80,7 @@ dependencies {
             "com.alibaba.csp:sentinel-datasource-nacos:$sentinelDatasourceNacosVersion",
             //整合druid
             "com.alibaba:druid-spring-boot-starter:$druidVersion",
-            "mysql:mysql-connector-java:8.0.21"
+            "mysql:mysql-connector-java:$mysqlVersion"
     )
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     //lombok
