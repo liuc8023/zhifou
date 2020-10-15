@@ -77,6 +77,8 @@ subprojects {
         huToolVersion = '5.4.4'
         servletApiVersion = '4.0.1'
         mapStructVersion = '1.3.1.Final'
+        collections4Version = '4.4'
+        mybatisVersion = "3.5.6"
     }
     //所有子模块共有依赖
     dependencies{
@@ -105,7 +107,9 @@ subprojects {
                 "com.alibaba:fastjson:$fastjsonVersion",
                 //mapstruct
                 "org.mapstruct:mapstruct-jdk8:$mapStructVersion",
-                "org.mapstruct:mapstruct-processor:$mapStructVersion"
+                "org.mapstruct:mapstruct-processor:$mapStructVersion",
+                "org.apache.commons:commons-collections4:$collections4Version",
+                "org.mybatis:mybatis:$mybatisVersion"
         )
 
         // 测试依赖

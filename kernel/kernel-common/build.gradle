@@ -7,6 +7,10 @@ buildscript {
     ext {
         springBootVersion = '2.3.4.RELEASE'
         lombokVersion= '1.18.14'
+        springVersion = '5.2.9.RELEASE'
+        mybatisVersion = "3.5.6"
+        log4jVersion = '2.13.3'
+        collections4Version = '4.4'
     }
 
     //仓库管理
@@ -38,10 +42,24 @@ dependencies {
     compile(
         // Log4j2
         "org.springframework.boot:spring-boot-starter-log4j2:$springBootVersion",
-        "org.projectlombok:lombok:$lombokVersion"
+        "org.projectlombok:lombok:$lombokVersion",
+        "org.springframework:spring-beans:$springVersion",
+        "org.springframework:spring-core:$springVersion",
+        "org.springframework:spring-context:$springVersion",
+        "org.mybatis:mybatis:$mybatisVersion",
+        //log4j
+        "org.apache.logging.log4j:log4j-core:$log4jVersion",
+        "org.apache.logging.log4j:log4j-api:$log4jVersion",
+        "org.apache.commons:commons-collections4:$collections4Version",
     )
 }
 
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
+}
+
+gradle.projectsEvaluated {
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+    }
 }
