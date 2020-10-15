@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springcloud.zhifou.customer.module.commom.dao.CustCodeValueMapper">
+
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.springcloud.zhifou.customer.module.commom.entity.CustCodeValue">
+                    <id column="code_type_id_key" property="codeTypeIdKey" />
+                    <result column="code_type_id_value" property="codeTypeIdValue" />
+                    <result column="code_type_name" property="codeTypeName" />
+                    <result column="code_type_key" property="codeTypeKey" />
+                    <result column="code_type_key_name" property="codeTypeKeyName" />
+                    <result column="code_type_parent_id" property="codeTypeParentId" />
+                    <result column="code_type_level" property="codeTypeLevel" />
+                    <result column="validate_flage" property="validateFlage" />
+                    <result column="attr_value" property="attrValue" />
+                    <result column="attr_description" property="attrDescription" />
+                    <result column="last_updated_stamp" property="lastUpdatedStamp" />
+                    <result column="last_updated_tx_stamp" property="lastUpdatedTxStamp" />
+                    <result column="created_stamp" property="createdStamp" />
+                    <result column="created_tx_stamp" property="createdTxStamp" />
+        </resultMap>
+
+        <!-- 通用查询结果列 -->
+        <sql id="Base_Column_List">
+        code_type_id_key, code_type_id_value, code_type_name, code_type_key, code_type_key_name, code_type_parent_id, code_type_level, validate_flage, attr_value, attr_description, last_updated_stamp, last_updated_tx_stamp, created_stamp, created_tx_stamp
+    </sql>
+
+</mapper>
