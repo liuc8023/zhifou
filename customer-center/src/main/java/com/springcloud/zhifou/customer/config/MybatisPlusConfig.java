@@ -28,9 +28,6 @@ import java.io.IOException;
 
 /**
  * Mybatis-plus配置类
- * @className: MybatisPlusConfig
- * @author: liuc
- * @date: 2019-04-28 19:28
  **/
 @Configuration
 @EnableTransactionManagement(order = 2)
