@@ -1,4 +1,4 @@
-package com.springcloud.zhifou.customer.init;
+package com.springcloud.zhifou.customer.common.init;
 
 import com.springcloud.kernel.common.exception.UnifyErrorCode;
 import com.springcloud.kernel.common.exception.UnifyException;

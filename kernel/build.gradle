@@ -28,6 +28,8 @@ buildscript {
 }
 
 apply plugin: 'java'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 dependencies {
     //如果要做jar包分离，此处必须要使用compile,不然系统启动失败，血的教训

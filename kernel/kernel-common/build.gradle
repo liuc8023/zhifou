@@ -11,6 +11,10 @@ buildscript {
         mybatisVersion = "3.5.6"
         log4jVersion = '2.13.3'
         collections4Version = '4.4'
+        jacksonVersion = '2.12.0-rc1'
+        swaggerVersion = '3.0.0'
+        huToolVersion = '5.4.4'
+        fastjsonVersion = '1.2.74'
     }
 
     //仓库管理
@@ -51,6 +55,12 @@ dependencies {
         "org.apache.logging.log4j:log4j-core:$log4jVersion",
         "org.apache.logging.log4j:log4j-api:$log4jVersion",
         "org.apache.commons:commons-collections4:$collections4Version",
+        "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion",
+        "com.fasterxml.jackson.core:jackson-core:$jacksonVersion",
+        "com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion",
+        "io.springfox:springfox-boot-starter:$swaggerVersion",
+        "cn.hutool:hutool-all:$huToolVersion",
+        "com.alibaba:fastjson:$fastjsonVersion"
     )
 }
 

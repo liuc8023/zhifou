@@ -1,4 +1,4 @@
-package com.springcloud.zhifou.customer.config;
+package com.springcloud.zhifou.customer.common.config;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.springcloud.kernel.common.utils.DateUtil;

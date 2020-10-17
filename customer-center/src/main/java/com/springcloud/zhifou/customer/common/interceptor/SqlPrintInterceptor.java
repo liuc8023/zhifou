@@ -1,4 +1,4 @@
-package com.springcloud.zhifou.customer.interceptor;
+package com.springcloud.zhifou.customer.common.interceptor;
 
 import lombok.extern.log4j.Log4j2;
 import org.apache.ibatis.executor.Executor;

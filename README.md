@@ -24,6 +24,7 @@ zhifou
 | MyBatisGenerator     | 数据层代码生成         | http://www.mybatis.org/generator/index.html          |
 | PageHelper           | MyBatis物理分页插件    | https://pagehelper.github.io/                        |
 | Swagger-UI           | 文档生产工具           | https://github.com/swagger-api/swagger-ui            |
+| springdoc-openapi    | 标准的OpenAPI 3 文档生成工具  | https://springdoc.org/           |
 | Hibernator-Validator | 验证框架               | http://hibernate.org/validator/                      |
 | Redis                | 分布式缓存             | https://redis.io/                                    |
 | Druid                | 数据库连接池           | https://github.com/alibaba/druid                     |

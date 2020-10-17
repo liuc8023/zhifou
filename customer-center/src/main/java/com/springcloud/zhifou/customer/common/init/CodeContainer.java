@@ -1,4 +1,4 @@
-package com.springcloud.zhifou.customer.init;
+package com.springcloud.zhifou.customer.common.init;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
