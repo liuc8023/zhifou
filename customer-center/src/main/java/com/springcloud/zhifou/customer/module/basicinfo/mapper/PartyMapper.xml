@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springcloud.zhifou.customer.module.basicinfo.dao.PartyMapper">
+
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.springcloud.zhifou.customer.module.basicinfo.entity.Party">
+                    <id column="party_id" property="partyId" />
+                    <result column="party_name" property="partyName" />
+                    <result column="party_type_id" property="partyTypeId" />
+                    <result column="existing_customer" property="existingCustomer" />
+                    <result column="status_id" property="statusId" />
+                    <result column="external_id" property="externalId" />
+                    <result column="preferred_currency_uom_id" property="preferredCurrencyUomId" />
+                    <result column="description" property="description" />
+                    <result column="created_date" property="createdDate" />
+                    <result column="created_by_user_login" property="createdByUserLogin" />
+                    <result column="last_modified_date" property="lastModifiedDate" />
+                    <result column="last_modified_by_user_login" property="lastModifiedByUserLogin" />
+                    <result column="data_source_id" property="dataSourceId" />
+                    <result column="is_unread" property="isUnread" />
+                    <result column="legal_person" property="legalPerson" />
+                    <result column="init_system_id" property="initSystemId" />
+                    <result column="init_org" property="initOrg" />
+                    <result column="init_te" property="initTe" />
+                    <result column="last_system_id" property="lastSystemId" />
+                    <result column="last_updated_org" property="lastUpdatedOrg" />
+                    <result column="last_updated_te" property="lastUpdatedTe" />
+                    <result column="created_stamp" property="createdStamp" />
+                    <result column="created_tx_stamp" property="createdTxStamp" />
+                    <result column="last_updated_stamp" property="lastUpdatedStamp" />
+                    <result column="last_updated_tx_stamp" property="lastUpdatedTxStamp" />
+        </resultMap>
+
+        <!-- 通用查询结果列 -->
+        <sql id="Base_Column_List">
+        party_id, party_name, party_type_id, existing_customer, status_id, external_id, preferred_currency_uom_id, description, created_date, created_by_user_login, last_modified_date, last_modified_by_user_login, data_source_id, is_unread, legal_person, init_system_id, init_org, init_te, last_system_id, last_updated_org, last_updated_te, created_stamp, created_tx_stamp, last_updated_stamp, last_updated_tx_stamp
+    </sql>
+
+</mapper>

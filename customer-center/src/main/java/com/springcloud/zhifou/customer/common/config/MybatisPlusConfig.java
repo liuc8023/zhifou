@@ -1,4 +1,4 @@
-package com.springcloud.zhifou.customer.config;
+package com.springcloud.zhifou.customer.common.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.baomidou.mybatisplus.annotation.DbType;
@@ -11,9 +11,8 @@ import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInt
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 import com.baomidou.mybatisplus.core.config.GlobalConfig.DbConfig;
-import com.springcloud.zhifou.customer.interceptor.SqlPrintInterceptor;
+import com.springcloud.zhifou.customer.common.interceptor.SqlPrintInterceptor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.logging.stdout.StdOutImpl;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.type.JdbcType;

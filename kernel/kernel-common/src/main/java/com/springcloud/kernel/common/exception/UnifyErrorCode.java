@@ -2,9 +2,6 @@ package com.springcloud.kernel.common.exception;
 /**
 * @className UnifyErrorCode
 * @description 系统错误码
-* @author liuc
-* @date 2019-11-01 14:23
-* @since JDK 1.8
 **/
 public enum UnifyErrorCode {
     /**

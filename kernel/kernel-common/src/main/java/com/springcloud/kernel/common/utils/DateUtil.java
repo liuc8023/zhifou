@@ -1,15 +1,15 @@
 package com.springcloud.kernel.common.utils;
 
+import com.springcloud.kernel.common.exception.UnifyException;
 import lombok.extern.log4j.Log4j2;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.*;
-import java.util.Date;
-import java.util.Hashtable;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 时间处理工具类
@@ -525,6 +525,15 @@ public class DateUtil implements Serializable {
         return LocalTime.now();
     }
 
+    /**
+     * 返回当前时间
+     * @return
+     */
+    public static Date getCurrentDateTime() {
+        // 指定格式化格式
+        SimpleDateFormat f = new SimpleDateFormat(DATETIME_FORMATTER);
+        return cn.hutool.core.date.DateUtil.parse(f.format(formatLdtToDate(getCurrLocalDateTime())));
+    }
 
     /**
      * 获取两个日期的差  field参数为ChronoUnit.*
@@ -826,6 +835,19 @@ public class DateUtil implements Serializable {
             throw new DateTimeException("Please enter a ZonedDateTime!");
         }
         return Date.from(dateTime.toInstant());
+    }
+
+    /**
+     * String 转换成 Date
+     *
+     * @param date
+     * @return
+     */
+    public static Date formatStringToDate(String date){
+        if (UtilValidate.isEmpty(date)) {
+            throw new DateTimeException("Please enter the date string to be converted!");
+        }
+        return formatStringToDate(date,DATETIME_FORMATTER);
     }
 
     /**
@@ -1259,7 +1281,65 @@ public class DateUtil implements Serializable {
         return Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).plusDays(1L).minusNanos(1L).toInstant());
     }
 
+    /**
+     * util日期转换sql日期
+     *
+     * @param utilDate
+     * @return
+     * @throws UnifyException
+     */
+    public static java.sql.Date formatUtilDateToSqlDate(String utilDate) throws UnifyException {
+        if (UtilValidate.isEmpty(utilDate)) {
+            return null;
+        } else {
+            return formatUtilDateTosqlDate(formatStringToDate(utilDate));
+        }
+    }
+
+    /**
+     * util日期转换sql日期
+     *
+     * @param utilDate
+     * @return
+     * @throws UnifyException
+     */
+    public static java.sql.Date formatUtilDateTosqlDate(Date utilDate) throws UnifyException {
+        try {
+            if (UtilValidate.isEmpty(utilDate)) {
+                return null;
+            } else {
+                java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+                return sqlDate;
+            }
+        } catch (Exception e) {
+            throw new UnifyException(e.getMessage());
+        }
+
+    }
+
+    /**
+     * 日期字符串转换sql日期
+     *
+     * @param dateStr
+     * @return
+     * @throws UnifyException
+     */
+    public static java.sql.Date formatStringToSqlDate(String dateStr) throws UnifyException {
+        if (UtilValidate.isEmpty(dateStr)) {
+            return null;
+        } else {
+            String dStr = dateStr;
+            if (dStr.length() > 10) {
+                dStr = dStr.substring(0, 10);
+            }
+            java.sql.Date sqlDate = new java.sql.Date((formatStringToDate(dStr)).getTime());
+            return sqlDate;
+        }
+    }
+
+
     public static void main(String[] args) {
+        System.out.println(getCurrentDateTime());
         Date date = new Date();
         System.out.println("formatDateToLdt()："+formatDateToLdt(date));
         System.out.println("formatDateToLdt()："+formatDateToLdt(date,DATETIME_FORMATTER));
