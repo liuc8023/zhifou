@@ -65,6 +65,6 @@ zhifou
 
 欢迎访问我的GitHub：https://github.com/liuc8023/zhifou
 
-欢迎访问我的公众号
+欢迎访问我的公众号，请搜索  **java编程界的小学生**
 
 ![](images/qrcode_for_gh_36fd4663841a_258.jpg)
